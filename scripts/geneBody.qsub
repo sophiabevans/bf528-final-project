@@ -1,0 +1,12 @@
+#!/bin/bash -l
+
+#$ -P bf528
+#$ -cwd
+#$ -j y
+#$ -pe omp 25
+
+module unload anaconda3
+module load python3
+module load samtools rseqc
+
+geneBody_coverage.py -i P0_1_tophat/accepted_hits.bam -r /project/bf528/project_2/reference/annot/mm9.bed -o geneBody
